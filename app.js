@@ -52,8 +52,7 @@ numbers.forEach(button=>{
   button.addEventListener('click',()=>{
     const number = button.textContent;
     calculate.textContent += `${number}`
-    addToArr(number)
-    console.log(arr);
+    // console.log(arr);
   })
 })
 
@@ -61,7 +60,7 @@ operator.forEach(button=>{
   button.addEventListener('click',()=>{
     const operator = button.textContent;
     calculate.textContent += `${operator}`
-    console.log(operator);
+    // console.log(operator);
   })
 })
 
@@ -70,7 +69,9 @@ function clear(){
   result.textContent = '';
 }
 
-
+function remove(){
+  return
+}
 
 
 
