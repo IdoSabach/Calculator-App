@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,33 +33,33 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    <script src="app.js"></script>
+    
     <title>Calculator App</title>
   </head>
   <body>
     <div class="box-for-all">
       <div class="box-for-result">
-        <input class="calculate" type="text" />
-        <input class="result" type="text" />
+        <div class="calculate"></div>
+        <div class="result">Result</div>
       </div>
       <div class="grid">
-        <button class="clearAll"="">AC</button>
+        <button class="clearAll"">AC</button>
         <button class="delete">C</button>
-        <button class="perent" data-operator="">%</button>
-        <button class="divide" data-operator>/</button>
-        <button class="seven" data-num>7</button>
-        <button class="eight" data-num>8</button>
-        <button class="nine" data-num>9</button>
-        <button class="multiply" data-operator>*</button>
-        <button class="four" data-num>4</button>
-        <button class="five" data-num>5</button>
-        <button class="six" data-num>6</button>
-        <button class="subtract" data-operator>-</button>
-        <button class="one" data-num>1</button>
-        <button class="two" data-num>2</button>
-        <button class="three" data-num>3</button>
-        <button class="add" data-operator>+</button>
-        <button class="ziro" data-num>0</button>
+        <button id="operator" class="perent">%</button>
+        <button id="operator" class="divide">/</button>
+        <button id="number" class="seven">7</button>
+        <button id="number" class="eight">8</button>
+        <button id="number" class="nine">9</button>
+        <button id="operator" class="multiply">*</button>
+        <button id="number" class="four">4</button>
+        <button id="number" class="five">5</button>
+        <button id="number" class="six">6</button>
+        <button id="operator" class="subtract">-</button>
+        <button id="number" class="one">1</button>
+        <button id="number" class="two">2</button>
+        <button id="number" class="three">3</button>
+        <button id="operator" class="add">+</button>
+        <button id="number" class="ziro">0</button>
         <button class="point">.</button>
         <button class="equal">=</button>
       </div>
@@ -74,5 +75,8 @@
           alt="github"
       /></a>
     </footer>
+
+    <script src="app.js" ></script>
   </body>
 </html>
+
