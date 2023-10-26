@@ -40,6 +40,7 @@ body{
   text-align: right;
   padding-right: 10px;
   background-color:#4a4e69;
+  margin-bottom: 10px;
 }
 
 .result{
@@ -77,6 +78,7 @@ button{
   transform: scale(1.05);
   cursor: pointer;
   opacity: 0.8;
+  color: black;
  }
 .equal{
   grid-column: span 2;
@@ -109,6 +111,7 @@ footer{
   .calculate{
     height: 30px;
     font-size: 24px;
+    margin-bottom: 10px;
 
   }
   .result{
@@ -123,6 +126,7 @@ footer{
     width: 70px;
     height: 70px;
     font-size: 28px;
+    color: black;
   }
 }
 
