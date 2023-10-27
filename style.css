@@ -24,6 +24,7 @@ body{
   margin-top: 50px;
   border-radius: 10px;
   background-color: #4a4e69;
+  max-width: 490px;
 }
 
 .box-for-result{
@@ -46,6 +47,7 @@ body{
   background-color:#4a4e69;
   margin-bottom: 10px;
   margin-top: 10px;
+  overflow:auto;
 }
 
 .result{
@@ -107,6 +109,7 @@ button{
   .box-for-all{
     margin-top: 40px;
     margin: 30px;
+    max-width: 365px;
   }
   .box-for-result{
     margin: 5px;
