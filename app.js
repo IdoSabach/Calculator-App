@@ -1,9 +1,9 @@
 // INTERFACE
-const add = '+';
-const subtract = '-';
-const multiply = '*';
-const divide = '/';
-const arr = [];
+const ADD = '+';
+const SUBTRACT = '-';
+const MULTIPLE = '*';
+const DIVIDE = '/';
+const ARR = [];
 
 let num1 , num2;
 
@@ -26,11 +26,11 @@ function divideFun(num1,num2){
 
 
 function allCalculate(num1,operator,num2){
-  if(operator===add){
+  if(operator===ADD){
     return addFun(num1,num2)
-  }else if(operator===subtract){
+  }else if(operator===SUBTRACT){
     return subtractFun(num1,num2)
-  }else if(operator===multiply){
+  }else if(operator===MULTIPLE){
     return multipleFun(num1,num2)
   }else{
     return divideFun(num1,num2)
@@ -60,6 +60,7 @@ numbers.forEach((button)=>{
     getNumber(num);
   })
 })
+
 operator.forEach((button)=>{
   button.addEventListener('click',function(){
     const opera = button.textContent
@@ -94,18 +95,15 @@ function remove(){
 
 function getNumber(number){
   updateDisplayCalculate(number);
+  return number
 }
 
 function getOperator(operator){
   updateDisplayCalculate(operator);
+  return operator
 }
 
 function equalCalculate(){
-  return
+  let num1 = getNumber(number)
+  console.log(num1)
 }
-
-
-
-
-
-
