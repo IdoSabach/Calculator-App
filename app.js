@@ -12,7 +12,7 @@ function handleButtonClick(value) {
     currentInput = '';
     result = '';
   } else if (value === 'C') {
-    currentInput = '';
+    currentInput = currentInput.slice(0,-1);
   } else if (value === '=') { 
     result = calculateResult();
   } else {
@@ -65,7 +65,6 @@ function calculateResult() {
     return 'Error';
   }
 }
-
 
 function updateDisplay() {
   const display = document.querySelector('.calculate');
@@ -169,10 +168,4 @@ buttons.forEach((button) => {
 //   result.textContent = '';
 // }
 
-// function remove(){
-//   let allText = calculate.textContent
-//   if(allText>0){
-//     allText = allText.slice(0,-1);
-//     calculate.textContent = allText;
-//   }
-// }
+
