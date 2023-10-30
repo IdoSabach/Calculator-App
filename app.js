@@ -28,9 +28,9 @@ function allCalculate(num1,operator,num2){
     return addFun(num1,num2)
   }else if(operator===SUBTRACT){
     return subtractFun(num1,num2)
-  }else if(operator===MULTIPLE){
+  }else if(operator===MULTIPLY){
     return multipleFun(num1,num2)
-  }else{
+  }else if(operator===DIVIDE){
     return divideFun(num1,num2)
   }
 }
@@ -56,7 +56,6 @@ function mainFunction(value){
     alert("It's not working")
   }else if(value==="/" ||value==="*" || value==="-" ||value==="+"){
     let arr =calculate.textContent.split('')
-    
     if(arr[arr.length-1]==="/" ||
        arr[arr.length-1]==="*" ||
        arr[arr.length-1]==="-" ||
@@ -69,154 +68,22 @@ function mainFunction(value){
     }
 
   }else if(value==="."){
-    alert(".")
+    //add code here
   }else if(value==="="){
     let arr = calculate.textContent.split('')
-    // console.log(arr);
-    // equalCalculate(arr);
+    console.log(arr)
+    // console.log(arr.length)
+    const resultValue = equalCalculate(arr);
+    result.textContent = resultValue;
   }else{
-    let num = parseInt(value)
+    let num = parseFloat(value)
     calculate.textContent += num
   }
 }
 
-// function equalCalculate(arr){
-//   const op = []
-//   const value = []
-
-//   const precedence = {
-//     "+":2,
-//     "-":2,
-//     "/":1,
-//     "*":1
-//   }
-// }
-
-
-
-// let currentInput = '';
-// let result = '';
-
-// function handleButtonClick(value) {
-//   if (value === 'AC') {
-//     currentInput = '';
-//     result = '';
-//   } else if (value === 'C') {
-//     currentInput = currentInput.slice(0,-1);
-//   } else if (value === '=') { 
-//     result = calculateResult();
-//   } else {
-//     currentInput += value;
-//   }
-//   updateDisplay();
-// }
-
-
-// function calculateResult() {
-//   try {
-//     const parts = currentInput.match(/[0-9.]+|[-+*/]/g);
-
-//     if (!parts) {
-//       return 'Error';
-//     }
-
-//     let total = parseFloat(parts[0]);
-//     for (let i = 1; i < parts.length; i += 2) {
-//       const operator = parts[i];
-//       const operand = parseFloat(parts[i + 1]);
-
-//       if (isNaN(operand)) {
-//         return 'Error';
-//       }
-
-//       switch (operator) {
-//         case ADD:
-//           total += operand;
-//           break;
-//         case SUBTRACT:
-//           total -= operand;
-//           break;
-//         case MULTIPLY:
-//           total *= operand;
-//           break;
-//         case DIVIDE:
-//           if (operand === 0) {
-//             return 'Error';
-//           }
-//           total /= operand;
-//           break;
-//         default:
-//           return 'Error';
-//       }
-//     }
-
-//     return total.toString();
-//   } catch (error) {
-//     return 'Error';
-//   }
-// }
-
-// function updateDisplay() {
-//   const display = document.querySelector('.calculate');
-//   display.textContent = currentInput;
-//   const resultDisplay = document.querySelector('.result');
-//   resultDisplay.textContent = result;
-// }
-
-
-// const buttons = document.querySelectorAll('.grid button');
-// buttons.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     handleButtonClick(button.textContent);
-//   });
-// });
-
-
-
-
-// // UI
-
-// const calculate = document.querySelector('.calculate')
-// const result = document.querySelector('.result')
-// const clearAll = document.querySelector('.clearAll')
-// const deleteOne = document.querySelector('.delete')
-// const operator = document.querySelectorAll('.btn-operator')
-// const numbers = document.querySelectorAll('.btn-number')
-// const point = document.querySelector('.point')
-// const equal = document.querySelector('.equal')
-
-
-
-
-// clearAll.addEventListener('click',clear)
-// deleteOne.addEventListener('click',remove)
-
-// numbers.forEach((button)=>{
-//   button.addEventListener('click',function(){
-//     const num = button.textContent
-//     calculate.textContent += num;
-//     const num1 = calculate.textContent
-//   })
-// })
-
-// operator.forEach((button)=>{
-//   button.addEventListener('click',function(){
-//     const opera = button.textContent
-//     calculate.textContent += opera;
-
-//   })
-// })
-
-// equal.addEventListener('click',equalCalculate)
-
-
-
-// function updateDisplayResult(value){
-//  result.textContent = value;
-// }
-
-
-// function clear(){
-//   calculate.textContent = '';
-//   result.textContent = '';
-// }
+function equalCalculate(arr){
+//   Dear Sam!
+// Every time we press "=" we will get an array of numbers and you will be able to see a printout of it in the console
+// All I have to do is separate the array into the first operator number and the second number and do the calculation and later add precedence of operators and a decimal point.
+// I tried pop push include and more. Would appreciate help!
+}
