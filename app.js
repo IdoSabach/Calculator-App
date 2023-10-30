@@ -6,36 +6,36 @@ const DIVIDE = '/';
 let num1 =0
 let num2 =0
 let op = "";
-let currResult =0
+let currResult =null
 
 // INTERFACE
 
-function addFun(num1,num2){
-  return num1 + num2;
+function addFun(numOne,numTwo){
+  return numOne + numTwo;
 }
-function subtractFun(num1,num2){
-  return num1 - num2;
+function subtractFun(numOne,numTwo){
+  return numOne - numTwo;
 }
-function multiplyFun(num1,num2){
-  return num1 * num2;
+function multiplyFun(numOne,numTwo){
+  return numOne * numTwo;
 }
-function divideFun(num1,num2){
-  if(num1===0 || num2===0 || (num1===0 && num2===0)){
+function divideFun(numOne,numTwo){
+  if(numOne===0 || numTwo===0 || (numOne===0 && numTwo===0)){
     return "Error"
   }
-  return num1 / num2;
+  return numOne / numTwo;
 }
 
 
-function allCalculate(num1,operator,num2){
+function allCalculate(numOne,operator,numTwo){
   if(operator===ADD){
-    return addFun(num1,num2)
+    return addFun(numOne,numTwo)
   }else if(operator===SUBTRACT){
-    return subtractFun(num1,num2)
+    return subtractFun(numOne,numTwo)
   }else if(operator===MULTIPLY){
-    return multiplyFun(num1,num2)
+    return multiplyFun(numOne,numTwo)
   }else if(operator===DIVIDE){
-    return divideFun(num1,num2)
+    return divideFun(numOne,numTwo)
   }
 }
 const calculate = document.querySelector('.calculate')
@@ -97,7 +97,6 @@ function removeOne(){
 
 function addOneOperator(value){
     let arr =calculate.textContent.split('')
-    // console.log(arr)
     if(arr[arr.length-1]==="/" ||
        arr[arr.length-1]==="*" ||
        arr[arr.length-1]==="-" ||
@@ -110,26 +109,8 @@ function addOneOperator(value){
     }
 }
 
-function equalCalculate(num1,op,num2){
-  // if(op==="/"){
-  //   if(num1===0 || num2===0 ||(num1===0 && num2===0)){
-  //     alert("Error")
-  //   }else{
-  //     currResult = num1/num2
-  //     result.textContent = currResult
-  //   }
-  // }else if(op==="*"){
-  //   currResult = num1*num2
-  //   result.textContent = currResult
-  // }else if(op==="-"){
-  //   currResult = num1-num2
-  //   result.textContent = currResult
-  // }else if(op==="+"){
-  //   currResult = num1+num2
-  //   result.textContent = currResult
-  // }
-
-  currResult = allCalculate(num1,op,num2)
+function equalCalculate(numOne,operator,numTwo){
+  currResult = allCalculate(numOne,operator,numTwo)
   result.textContent = currResult
 }
 
