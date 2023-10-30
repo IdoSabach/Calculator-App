@@ -3,10 +3,10 @@ const ADD = '+';
 const SUBTRACT = '-';
 const MULTIPLY = '*';
 const DIVIDE = '/';
-let num1 =0
-let num2 =0
-let op = "";
-let currResult =null
+let num1 =''
+let num2 =''
+let op = null;
+let removeAllScreen = false
 
 // INTERFACE
 
@@ -28,6 +28,8 @@ function divideFun(numOne,numTwo){
 
 
 function allCalculate(numOne,operator,numTwo){
+  numOne =Number(numOne)
+  numTwo =Number(numTwo)
   if(operator===ADD){
     return addFun(numOne,numTwo)
   }else if(operator===SUBTRACT){
@@ -38,105 +40,74 @@ function allCalculate(numOne,operator,numTwo){
     return divideFun(numOne,numTwo)
   }
 }
+
 const calculate = document.querySelector('.calculate')
 const result = document.querySelector('.result')
+const clearAll = document.querySelector('.clearAll')
+const deleteOne = document.querySelector('.delete')
+const percent = document.querySelector('.percent')
+const operator = document.querySelectorAll('.btn-operator')
+const numbers = document.querySelectorAll('.btn-number')
+const point = document.querySelector('.point')
+const equal = document.querySelector('.equal')
 
-const buttons = document.querySelectorAll('.grid button')
-buttons.forEach((button) =>{
-  button.addEventListener('click',function(){
-    mainFunction(button.textContent);
-  })
+clearAll.addEventListener('click',clearAllFunc)
+deleteOne.addEventListener('click',removeOne)
+equal.addEventListener('click',calculateResult)
+
+operator.forEach((button)=>{
+  button.addEventListener('click',()=> getOperator(button.textContent))
+})
+
+numbers.forEach((button)=>{
+  button.addEventListener('click',()=> getNumber(button.textContent))
 })
 
 
 
-function mainFunction(value){
 
-  if(value==="AC"){
-    clearAll()
 
-  }else if(value==="C"){
-    removeOne()
-
-  }else if(value==="%"){
-    alert("It's not working")
-
-  }else if(value==="/" ||value==="*" || value==="-" ||value==="+"){
-    addOneOperator(value);
-    op = value
-    // console.log(op)
-
-  }else if(value==="."){
-    appendPoint()
-
-  }else if(value==="="){
-    equalCalculate(num1,op,num2)
-
-  }else{
-    checkObject(value)
+function getOperator(operator){
+  if(op!==null){
+    calculateResult()
   }
+  num1 = result.textContent
+  op = operator
+  calculate.textContent = `${num1} ${op}`
+  removeAllScreen = true
 }
 
-function clearAll(){
-  calculate.textContent = ""
-  result.textContent = ""
-  num1 = null
-  num2 = null
-  op = ""
-  currResult = null
+
+function getNumber(num){
+  if(removeAllScreen){
+    result.textContent = ""
+    removeAllScreen = false
+  }
+  result.textContent += num
 }
+
+
+function calculateResult(){
+  if(op===null || removeAllScreen){
+    return
+  }
+  num2 = result.textContent
+  result.textContent = allCalculate(num1,op,num2)
+  calculate.textContent = `${num1} ${op} ${num2} =`
+  op = null
+}
+
 
 function removeOne(){
   calculate.textContent = calculate.textContent.slice(0,-1)
 }
 
-function addOneOperator(value){
-    let arr =calculate.textContent.split('')
-    if(arr[arr.length-1]==="/" ||
-       arr[arr.length-1]==="*" ||
-       arr[arr.length-1]==="-" ||
-       arr[arr.length-1]==="+" ||
-       arr[arr.length-1]==="=" ||
-       arr[arr.length-1]==="."){
-      alert("have operator in calculate")
-    }else{
-      calculate.textContent += value;
-    }
-}
 
-function checkObject(value){
-  num1 = parseFloat(value)
-  calculate.textContent += num1
-  num1 = parseFloat(calculate.textContent)
-  const input = calculate.textContent
-  const cal = input.match(/(-?\d+)([-+*/])(-?\d+)/);
-  if (cal) {
-    if(currResult===null){
-      num1 = parseFloat(cal[1]);
-      op = cal[2];
-      num2 = parseFloat(cal[3]);
-    }else{
-      // calculate.textContent = currResult
-      cal[1] = currResult
-      num1=parseFloat(cal[1])
-      op = cal[2];
-      num2 = parseFloat(cal[3]);
-    }
-    
-  }
-  console.log(typeof(num1),num1,op,num2)
-}
 
-function equalCalculate(numOne,operator,numTwo){
-  currResult = allCalculate(numOne,operator,numTwo)
-  result.textContent = currResult
-  calculate.textContent =currResult
-}
-function appendPoint(){
-  if(calculate.textContent===""){
-    calculate.textContent = 0
-  }
-  if(!calculate.textContent.includes('.')){
-    return calculate.textContent += '.'
-  }
+function clearAllFunc(){
+  calculate.textContent = ""
+  result.textContent = ""
+  num1 = ''
+  num2 =''
+  op = null
 }
