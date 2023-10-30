@@ -67,7 +67,7 @@ function mainFunction(value){
     // console.log(op)
 
   }else if(value==="."){
-    //add code here
+    appendPoint()
 
   }else if(value==="="){
     equalCalculate(num1,op,num2)
@@ -108,7 +108,7 @@ function checkObject(value){
   num1 = parseFloat(value)
   calculate.textContent += num1
   num1 = parseFloat(calculate.textContent)
-  const input = calculate.textContent;
+  const input = calculate.textContent
   const cal = input.match(/(-?\d+)([-+*/])(-?\d+)/);
   if (cal) {
     if(currResult===null){
@@ -124,7 +124,7 @@ function checkObject(value){
     }
     
   }
-  console.log(num1,op,num2)
+  console.log(typeof(num1),num1,op,num2)
 }
 
 function equalCalculate(numOne,operator,numTwo){
@@ -132,4 +132,11 @@ function equalCalculate(numOne,operator,numTwo){
   result.textContent = currResult
   calculate.textContent =currResult
 }
-
+function appendPoint(){
+  if(calculate.textContent===""){
+    calculate.textContent = 0
+  }
+  if(!calculate.textContent.includes('.')){
+    return calculate.textContent += '.'
+  }
+}
