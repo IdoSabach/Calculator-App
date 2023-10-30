@@ -73,22 +73,17 @@ function mainFunction(value){
     equalCalculate(num1,op,num2)
 
   }else{
-    num1 = parseFloat(value)
-    calculate.textContent += num1
-    num1 = parseFloat(calculate.textContent)
-    const input = calculate.textContent;
-    const cal = input.match(/(-?\d+)([-+*/])(-?\d+)/);
-    if (cal) {
-      num1 = parseFloat(cal[1]);
-      op = cal[2];
-      num2 = parseFloat(cal[3]);
-    }
+    checkObject(value)
   }
 }
 
 function clearAll(){
   calculate.textContent = ""
-    result.textContent = ""
+  result.textContent = ""
+  num1 = null
+  num2 = null
+  op = ""
+  currResult = null
 }
 
 function removeOne(){
@@ -109,8 +104,32 @@ function addOneOperator(value){
     }
 }
 
+function checkObject(value){
+  num1 = parseFloat(value)
+  calculate.textContent += num1
+  num1 = parseFloat(calculate.textContent)
+  const input = calculate.textContent;
+  const cal = input.match(/(-?\d+)([-+*/])(-?\d+)/);
+  if (cal) {
+    if(currResult===null){
+      num1 = parseFloat(cal[1]);
+      op = cal[2];
+      num2 = parseFloat(cal[3]);
+    }else{
+      // calculate.textContent = currResult
+      cal[1] = currResult
+      num1=parseFloat(cal[1])
+      op = cal[2];
+      num2 = parseFloat(cal[3]);
+    }
+    
+  }
+  console.log(num1,op,num2)
+}
+
 function equalCalculate(numOne,operator,numTwo){
   currResult = allCalculate(numOne,operator,numTwo)
   result.textContent = currResult
+  calculate.textContent =currResult
 }
 
