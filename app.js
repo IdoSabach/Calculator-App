@@ -54,6 +54,17 @@ const equal = document.querySelector('.equal')
 clearAll.addEventListener('click',clearAllFunc)
 deleteOne.addEventListener('click',removeOne)
 equal.addEventListener('click',calculateResult)
+point.addEventListener('click',addPoint)
+
+function addPoint(){
+  if(result.textContent===""){
+    result.textContent +='0'
+  }
+  if(result.textContent.includes('.')){
+    return
+  }
+  result.textContent +='.'
+}
 
 operator.forEach((button)=>{
   button.addEventListener('click',()=> getOperator(button.textContent))
