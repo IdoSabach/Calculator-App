@@ -1,15 +1,14 @@
 *,
 *::after,
-*::before{
+*::before {
   padding: 0;
   margin: 0;
-  box-sizing:border-box ;
-  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
   /* outline:  1px solid red; */
 }
 
-
-body{
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -19,8 +18,7 @@ body{
   /* font-family: 'Open Sans', sans-serif; */
 }
 
-
-.box-for-all{
+.box-for-all {
   border-style: solid;
   margin-top: 50px;
   border-radius: 30px;
@@ -28,7 +26,7 @@ body{
   max-width: 490px;
 }
 
-.box-for-result{
+.box-for-result {
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -37,7 +35,7 @@ body{
   border-radius: 30px;
 }
 
-.calculate{
+.calculate {
   height: 50px;
   border-radius: 10px;
   border-style: none;
@@ -45,35 +43,35 @@ body{
   color: gray;
   text-align: right;
   padding-right: 10px;
-  background-color:#4a4e69;
+  background-color: #4a4e69;
   margin: 10px;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.result{
+.result {
   height: 100px;
   border-radius: 10px;
-  border-style:none;
+  border-style: none;
   font-size: 80px;
   text-align: right;
   padding-right: 10px;
   background-color: #4a4e69;
-  color:#f2e9e4 ;
+  color: #f2e9e4;
   margin: 10px;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.grid{
+.grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(5,1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   /* justify-content: space-around; */
   margin: 20px;
   margin-top: 10px;
   gap: 15px;
 }
 
-button{
+button {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -82,54 +80,58 @@ button{
   background-color: #f2e9e4;
   transition: transform 0.5s;
 }
- button:hover{
+button:hover {
   transform: scale(1.05);
   cursor: pointer;
   opacity: 0.8;
   color: black;
- }
-.equal{
+}
+.equal {
   grid-column: span 2;
   width: 100%;
   border-radius: 50px;
 }
 
-.divide,.add,.subtract,.multiply,.equal{
+.divide,
+.add,
+.subtract,
+.multiply,
+.equal {
   background-color: #9a8c98;
 }
 
-.clearAll,.delete,.perent{
-  background-color:#c9ada7 ;
+.clearAll,
+.delete,
+.perent {
+  background-color: #c9ada7;
 }
 
 /* footer{
   text-align: center;
 } */
 
-
-@media (max-width:600px) {
-  .box-for-all{
+@media (max-width: 600px) {
+  .box-for-all {
     margin-top: 40px;
     margin: 30px;
     max-width: 365px;
   }
-  .box-for-result{
+  .box-for-result {
     margin: 5px;
   }
-  .calculate{
+  .calculate {
     height: 50px;
     font-size: 36px;
     margin-bottom: 10px;
-
   }
-  .result{
+  .result {
     height: 60px;
     font-size: 52px;
   }
-  .grid{
+  .grid {
     gap: 15px;
   }
-  button{
+  button {
     width: 70px;
     height: 70px;
     font-size: 28px;
